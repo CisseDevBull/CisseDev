@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Esercizi JS</title>
+  </head>
+  <body>
+    <body>
+        <h2>Tipi di dati in JavaScript</h2>
+        <p>In JavaScript ci sono dei tipi di dati(primitivi e complessi):</p>
+        <h3>Dati primitivi o sipemplici:</h3>
+        <p>Stringa: sequenze di caratteri (es: "Corso")</p>
+        <p>Numero: sono tutti interi e decimali(es: 12 o  4,7)</p>
+        <p>Bigint: sono numeri interi molto grandi (es:2334142326152434567890123456789012345678901234567890...</p>
+        <p>Indefinito (Undefined): Indica che una variabile è stata dichiarata ma non ha un valore assegnato.</p>
+        <p>Simbolo (Symbol): identificatori univoci.</p>
+        <p>Nullo (Null): tipi che non hanno valore o oggetto.</p>
+        <p>Booleano: Può essere vero (true) o falso (false)</p>
+        <h3>Dati complessi:</h3>
+        <p>Oggetto (Object): contenitore di dati complessi come oggetti, array o date.</p>
+        
+      <script>
+          
+    /* SCRIVI QUI LA TUA RISPOSTA */
+
+/* ESERCIZIO 2
+ Crea una variable chiamata "myName" e assegna ad essa il tuo nome, sotto forma di stringa.
+*/
+
+let myName = "Ibrahima";
+console.log("Mio nome è " + myName);
+
+/* ESERCIZIO 3
+ Scrivi il codice necessario ad effettuare un addizione (una somma) dei numeri 12 e 20.
+*/
+
+let numero1 = 12;
+let numero2 = 20;
+let somma = numero1 + numero2;
+console.log((numero1 + numero2));
+
+
+
+/* ESERCIZIO 4
+ Crea una variable di nome "x" e assegna ad essa il numero 12.
+*/
+
+let x = 12;
+console.log("il valore di x è " + x);
+
+
+/* ESERCIZIO 5
+  Riassegna un nuovo valore alla variabile "myName" già esistente: il tuo cognome.
+  Dimostra l'impossibilità di riassegnare un valore ad una variabile dichiarata con il costrutto const.
+*/
+
+myName = "Alberto";
+
+/* ESERCIZIO 6
+ Esegui una sottrazione tra i numeri 4 e la variable "x" appena dichiarata (che contiene il numero 12).
+*/
+
+let sostrazione = 4 - x;
+console.log(sostrazione);
+
+/* ESERCIZIO 7
+ Crea due variabili: "name1" e "name2". Assegna a name1 la stringa "john", e assegna a name2 la stringa "John" (con la J maiuscola!).
+ Verifica che name1 sia diversa da name2 (suggerimento: è la stessa cosa di verificare che la loro uguaglianza sia falsa).
+ EXTRA: verifica che la loro uguaglianza diventi true se entrambe vengono trasformate in lowercase (senza cambiare il valore di name2!).
+*/
+
+let name1 = "jhon";
+let name2 = "John";
+console.log((name1 !== name2));
+
+  </script>
+  </body>
+</html>
