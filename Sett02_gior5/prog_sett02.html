@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*  ESERCIZIO 1
+            Dato il seguente array, scrivi del codice per stampare ogni elemento dell'array in console.
+        */
+            const pets = ['dog', 'cat', 'hamster', 'redfish'];
+
+            for (let i = 0; i < pets.length; i++) 
+            {
+                console.log(pets[i]);
+            }
+
+        //2 Ordina l'array in ordine alfabetico
+
+
+            pets.sort();
+
+            // Stampo gli elementi ordinati
+            for (const pet of pets) 
+            {
+                console.log(pet);
+            }
+
+
+        // 3 Ordina l'array al contrario
+    
+            pets.reverse();
+
+            // Stampa gli elementi invertiti
+            for (const pet of pets) 
+            {
+                console.log(pet);
+            }
+
+        // 4
+            const pets2 = ['dog', 'cat', 'hamster', 'redfish'];
+
+            // Rimuovo il primo elemento con 'shift' poi e lo aggiungo alla fine dell'array con'push'
+            pets2.push(pets2.shift());
+
+            // Stampa gli elementi con il primo elemento spostato in ultima posizione
+            for (const pet of pets2) 
+            {
+                console.log(pet);
+            }
+
+        //5 Dato il seguente array di oggetti, scrivi del codice per aggiungere ad ognuno di essi una proprietà "licensePlate" con valore a tua scelta.
+           
+            const cars = [
+            {
+                brand: 'Ford',
+                model: 'Fiesta',
+                color: 'red',
+                trims: ['titanium', 'st', 'active'],
+            },
+            {
+                brand: 'Peugeot',
+                model: '208',
+                color: 'blue',
+                trims: ['allure', 'GT'],
+            },
+            {
+                brand: 'Volkswagen',
+                model: 'Polo',
+                color: 'black',
+                trims: ['life', 'style', 'r-line'],
+            },
+                        ];
+
+            // Aggiungo la proprietà "LicensePlate" a ciascun oggetto utilizzando un ciclo for
+            for (let i = 0; i < cars.length; i++) 
+            {
+            cars[i].licensePlate = 'AB123AA'; // Inserisco LicensePlate con una stringa desiderata qui
+            }
+
+            console.log(cars);
+
+
+        /* 6 
+            Scrivi del codice per aggiungere un nuovo oggetto in ultima posizione nell'array "cars", 
+            rispettando la struttura degli altri elementi. Successivamente, rimuovi l'ultimo elemento 
+            della proprietà "trims" da ogni auto.
+        */
+
+        // Considero Toyota come nuovo ogggetto da inserire alla fine dell'array "cars"
+            const newCar = {
+                            brand: 'Toyota',
+                            model: 'Corolla',
+                            color: 'silver',
+                            trims: ['le', 'xle'],
+                            licensePlate: 'AB123AA',
+                            };
+            cars.push(newCar);
+
+            // Rimuovo l'ultimo elemento dalla proprietà "trims" di ciascuno oggetto
+            for (let i = 0; i < cars.length; i++) 
+            {
+                const ultimoTrimIndex = cars[i].trims.length - 1;
+                cars[i].trims.splice(ultimoTrimIndex, 1);
+            }
+
+            console.log(cars);
+
+        /* 7
+            Scrivi del codice per salvare il primo elemento della proprietà "trims" di ogni auto nel 
+            nuovo array "justTrims", sotto definito.
+        */
+       //Considero come nuovo array vuoto "justTrims"
+        const justTrims = [];
+
+        for (let i = 0; i < cars.length; i++) 
+        {
+        const firstTrim = cars[i].trims[0];
+        justTrims.push(firstTrim);
+        }
+
+        console.log(justTrims);
+
+        /* 8 Cicla l'array "cars" e costruisci un if/else statament per mostrare due diversi messaggi
+         in console. Se la prima lettera della proprietà "color" ha valore "b", mostra in console 
+         "Fizz". Altrimenti, mostra in console "Buzz".
+    */
+        for (let i = 0; i < cars.length; i++) 
+        {
+            //cerco prima di mettere tutte le prime lettere(index=0) in minuscolo
+            const primaLettera = cars[i].color.charAt(0).toLowerCase();
+            if (primaLettera === 'b') 
+            {
+                console.log('Fizz');
+            } 
+            else 
+            {
+                console.log('Buzz');
+            }
+        }
+
+
+    /* 9 Utilizza un ciclo while per stampare in console i valori del seguente array numerico fino al 
+        raggiungimento del numero 32. */
+
+        const numericArray =    [
+                                6, 90, 45, 75, 84, 98, 35, 74, 31, 2, 8, 23, 100, 32, 66, 313, 321, 105,
+                                ]
+        var index = 0;
+
+        while (index < numericArray.length && numericArray[index] !== 66)
+        {
+            console.log(numericArray[index]);
+            index++;
+        }
+        
+
+/* 10
+    Partendo dall'array fornito e utilizzando un costrutto switch, genera un nuovo array 
+    composto dalle posizioni di ogni carattere all'interno dell'alfabeto italiano.*/
+   // es. [f, b, e] --> [6, 2, 5] 
+    
+
+        const Array1 = ['g', 'n', 'u', 'z', 'd']
+
+        const alphabet = 'abcdefghijklmnopqrstuvwxyz';
+
+        const positionsArray = Array1.map((char) => 
+                                                    {
+                                                    const position = alphabet.indexOf(char) + 1;
+                                                    return position;
+                                                    });
+
+        console.log(positionsArray);
+
+
+            </script>
+</body>
+</html>
