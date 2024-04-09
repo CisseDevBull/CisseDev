@@ -14,17 +14,18 @@
 
 
 
-function concatenaStringhe(str1, str2) 
+const str1 = "vita";
+const str2 = "albero"
+const parte1 = str1.slice(0, 2);
+const parte2 = str2.slice(-3);
+function concatenaArray(parte1, parte2) 
 {
-    const str1 = "vita";
-    const str2 = "albero"
-    const parte1 = str1.slice(0, 2);
-    const parte2 = str2.slice(-3);
-    const risultato = parte1 + parte2;
-    const risultatoMaiuscolo = risultato.toUpperCase();
-    console.log(risultatoMaiuscolo);
+    return parte1.concat(parte2);   
 }
-concatenaStringhe(str1, str2);
+const risultato = concatenaArray(parte1, parte2);
+console.log(risultato);
+const risultatoMaiuscolo = risultato.toUpperCase();
+console.log(risultatoMaiuscolo);
 
 
 
