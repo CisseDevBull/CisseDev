@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lista di Testi</title>
+    <style>
+    
+        body{
+            background-color: rgb(108, 23, 108);
+        }
+        #insersione{
+            border: 1px solid #ccc;
+            background-color: whitesmoke;
+            margin: 200px;
+            padding: 20px;
+            border-radius: 10px;
+        }
+        #crea{
+            background-color: aqua;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 100px ;
+            height: 30px;
+        }
+        
+        input[type="text"] {
+            width: 315px;
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            height: 20px;
+            border-radius: 6px;
+        }
+
+        ul {
+            
+            list-style: none;
+            padding: 0;
+        }
+
+        li {
+            background-color: #ddd;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 5px;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        li.completed {
+            text-decoration: line-through;
+        }
+
+        .delete-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            color: red;
+            border-radius: 5px solid;
+            border: 1px solid #ccc ;
+        }
+    </style>
+</head>
+<body>
+    <div id="insersione">
+        <input type="text" id="inputText" placeholder="Aggiungi un task">
+        <button id="crea" onclick="aggiungiTask()">Crea</button>
+    
+        <ul id="listaTesti"></ul>
+    </div>
+    <script>
+        function aggiungiTask() {
+            const inputElement = document.getElementById("inputText");
+            const testoInserito = inputElement.value;
+            //non voglio che l'input sia una stringa vuota
+            if (testoInserito !== "") 
+            {
+                const listaTask = document.getElementById("listaTesti");
+                const nuovoTask = document.createElement("li");
+                nuovoTask.textContent = testoInserito;
+
+                // Aggiungi pulsante per cancellare il testo
+                const deleteButton = document.createElement("span");
+                deleteButton.className = "delete-button";
+                deleteButton.textContent = "X";
+                deleteButton.onclick = function () 
+                                        {
+                                            listaTask.removeChild(nuovoTask);
+                                        };
+                                        nuovoTask.appendChild(deleteButton);
+
+                // Aggiungi evento per barrare il testo
+                nuovoTask.onclick = function () 
+                {
+                    nuovoTask.classList.toggle("completed");
+                };
+
+                listaTask.appendChild(nuovoTask);
+                inputElement.value = "";
+            }
+        }
+    </script>
+</body>
+</html>
