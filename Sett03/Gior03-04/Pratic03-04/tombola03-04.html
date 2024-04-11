@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .tabellone {
+            display: grid;
+            grid-template-columns: repeat(10, 60px);
+            gap: 5px;
+            border: 3px solid #555252;
+            background-color: burlywood;
+        }
+        .cella {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        #vuoto{
+            height: 20px;
+        }
+        .cartellina {
+            display: grid;
+            grid-template-columns: repeat(10, 60px);
+            gap: 5px;
+            border: 3px solid #555252;
+            background-color: aqua;
+        }
+        .cella_cartellina {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #000;
+            text-align: center;
+            line-height: 40px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="tabellone" id="tabellone">
+    </div>
+    <button onclick="estraiNumeroCasuale()">Estrai Numero</button>
+
+    <script>
+        const tabellone = document.getElementById("tabellone");
+        const celle = 76;
+        const cellePerLinea = 10;
+
+        // Crea le celle numerate
+        for (let i = 1; i <= celle; i++) {
+            const cella = document.createElement("div");
+            cella.classList.add("cella");
+            cella.textContent = i;
+            cella.onclick = () => estraiNumero(i);
+            tabellone.appendChild(cella);
+        }
+
+        // Creo la function per avere numeri casuali
+        function estraiNumeroCasuale() {
+            const numeroCasuale = Math.floor(Math.random() * celle) + 1;
+            estraiNumero(numeroCasuale);
+        }
+
+        // Colorazione dello sfondo delle celle dei numeri estrati
+        function estraiNumero(numero) {
+            const cellaCorrispondente = document.querySelector(`.cella:nth-child(${numero})`);
+            cellaCorrispondente.style.backgroundColor = "yellow";
+        }
+    </script>
+    <div id="vuoto">
+
+    </div>
+    <div class="cartellina" id="cartellina">
+    </div>
+<script>
+    const cartellina = document.getElementById("cartellina");
+    const cellePerLinea_cartellina = 10;
+    const numeriEstratti = []; // Array per memorizzare i numeri estratti dal tabellone
+
+    for (let i = 1; i <= 20; i++) {
+        const cella = document.createElement("div");
+        cella.classList.add("cella");
+        cella.textContent = i;
+        cartellina.appendChild(cella);
+    }
+
+</script>
+    
+</body>
+</html>
