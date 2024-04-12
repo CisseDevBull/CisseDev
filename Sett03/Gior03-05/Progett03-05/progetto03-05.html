@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Sett03-gior0-05</title>
+</head>
+<body>
+    <script>
+        /* ESERCIZIO A
+  Crea una variabile chiamata "sum" e assegnaci il risultato della somma tra i valori 10 e 20.
+*/
+
+
+const sum = 10 + 20;
+console.log(sum);
+
+/* ESERCIZIO B
+  Crea una variabile chiamata "random" e assegnaci un numero casuale tra 0 e 20 (deve essere generato dinamicamente a ogni esecuzione).
+*/
+const random = Math.floor(Math.random() *21);
+console.log("questo è un numero casuale tra 0 e 20", random);
+
+
+
+
+/* ESERCIZIO C
+  Crea una variabile chiamata "me" e assegnaci un oggetto contenente le seguenti proprietà: name = il tuo nome, surname = il tuo cognome, age = la tua età.
+*/
+let me = {name: "Ibra", surname: "Cisse", age: "55"};
+
+console.log(("nome:", me.name), ("cognome:", me.surname),("eta:", me.age));
+
+
+/* ESERCIZIO D
+  Crea del codice per rimuovere programmaticamente la proprietà "age" dall'oggetto precedentemente creato.
+*/
+delete me.age;
+console.log(me);
+
+
+/* ESERCIZIO E
+  Crea del codice per aggiungere programmaticamente all'oggetto precedentemente creato un array chiamato "skills", contenente i linguaggi di programmazione che conosci.
+*/
+//skills diventa un ogetto di me come name
+me.skills =  ["Javascript", "Html", "C-piu_piu", "Java"];
+
+console.log(me);
+console.log(me.skills);
+
+/* ESERCIZIO F
+  Crea un pezzo di codice per aggiungere un nuovo elemento all'array "skills" contenuto nell'oggetto "me".
+*/
+
+me.skills.push("Element1");
+
+console.log(me);
+
+
+/* ESERCIZIO G
+  Crea un pezzo di codice per rimuovere programmaticamente l'ultimo elemento dall'array "skills" contenuto nell'oggetto "me".
+*/
+
+me.skills.pop();
+console.log(me.skills);
+
+// Funzioni
+
+/* ESERCIZIO 1
+  Crea una funzione chiamata "dice": deve generare un numero casuale tra 1 e 6.
+*/
+
+function dice()
+{
+    return Math.floor(Math.random() *6) + 1;
+} 
+
+const risultatoDice = dice();
+console.log("Il risultato del dado è:", risultatoDice);
+
+
+
+/* ESERCIZIO 2
+  Crea una funzione chiamata "whoIsBigger" che riceve due numeri come parametri e ritorna il maggiore dei due.
+*/
+
+function whoIsBigger(a,b)
+{
+    if ((a-b)>0) 
+    {
+        return a ;
+        console.log("a è maggiore di b")
+    }
+    else if((a-b)<o)
+    {
+        return  b;
+        console.log("a è minore di b");
+    }
+    else
+    {
+        throw new console.error("i due numeri sono uguali");
+    }
+
+    
+} 
+
+const a = 13;
+const b = 8;
+const compar = whoIsBigger(a, b);
+
+console.log("Il numero maggiore è:", compar)
+
+/* ESERCIZIO 3
+  Crea una funzione chiamata "splitMe" che riceve una stringa come parametro e ritorna un'array contenente ogni parola della stringa.
+
+  Es.: splitMe("I love coding") => ritorna ["I", "Love", "Coding"]
+*/
+
+function splitMe(stringA) 
+{
+  // Rimuovi eventuali spazi all'inizio e alla fine della stringa
+  const stringB = stringA.trim();
+
+  // Dividi la stringa in un array utilizzando gli spazi come delimitatori
+  const parole = stringB.split(" ");
+
+  return parole;
+}
+
+// Esempio di utilizzo della funzione
+const stringA = "sono un studente a epicode";
+const arrayC = splitMe(stringA);
+
+console.log("Array di parole:", arrayC);
+
+
+/* ESERCIZIO 4
+  Crea una funzione chiamata "deleteOne" che riceve una stringa e un booleano come parametri.
+  Se il valore booleano è true la funzione deve ritornare la stringa senza il primo carattere, altrimenti la deve ritornare senza l'ultimo.
+*/
+
+function deleteOne(StrA, removeFirst) 
+{
+  if (removeFirst) {
+    
+    return StrA.slice(1);
+  } else {
+    // Rimuovi l'ultimo carattere
+    return StrA.slice(0, -1);
+  }
+}
+
+// Esempio di utilizzo della funzione
+const testString = "il developper deve impegnarsi";
+const shouldRemoveFirst = true; // Cambia a "false" per rimuovere l'ultimo carattere
+
+const resultdelete = deleteOne(testString, shouldRemoveFirst);
+console.log("Risultato:", resultdelete);
+
+/* ESERCIZIO 5
+  Crea una funzione chiamata "onlyLetters" che riceve una stringa come parametro e la ritorna eliminando tutte le cifre numeriche.
+
+  Es.: onlyLetters("I have 4 dogs") => ritorna "I have dogs"
+*/
+
+
+
+function onlyLetters(str2) 
+{
+  // Utilizza una regex per rimuovere tutte le cifre numeriche
+  const str2_numb = str2.replace(/\d+/g, '');
+
+  return str2_numb;
+}
+
+const str2 = "sono le 14";
+const str_letter = onlyLetters(str2);
+
+console.log("Stringa senza cifre numeriche:", str_letter);
+
+/* ESERCIZIO 6
+  Crea una funzione chiamata "isThisAnEmail" che riceve una stringa come parametro e ritorna true se la stringa è un valido indirizzo email.
+*/
+
+function isThisAnEmail(String6) 
+{
+  // Utilizza una regex per verificare se la stringa è un indirizzo email valido
+  const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailPattern.test(String6);
+}
+
+// Esempio di utilizzo della funzione
+const indirizzoEmail = "example@email.com";
+const emailValid = isThisAnEmail(indirizzoEmail);
+
+if (emailValid) 
+{
+  console.log(`${indirizzoEmail} è un indirizzo email valido.`);
+} 
+else 
+{
+  console.log(`${indirizzoEmail} non è un indirizzo email valido.`);
+}
+
+/* ESERCIZIO 7
+  Scrivi una funzione chiamata "whatDayIsIt" che ritorna il giorno della settimana corrente.
+*/
+
+function whatDayIsIt() 
+{
+  const giorni = ["domenica", "lunedì", "martedì", "mercoledì", "giovedì", "venerdì", "sabato"];
+  const oggi = new Date().getDay();
+
+  return giorni[oggi];
+}
+const currentDay = whatDayIsIt();
+console.log("Oggi è", currentDay);
+
+
+/* ESERCIZIO 8
+  Scrivi una funzione chiamata "rollTheDices" che riceve un numero come parametro.
+  Deve invocare la precedente funzione dice() il numero di volte specificato nel parametro, e deve tornare un oggetto contenente una proprietà "sum":
+  il suo valore deve rappresentare il totale di tutti i valori estratti con le invocazioni di dice().
+  L'oggetto ritornato deve anche contenere una proprietà "values", contenente un array con tutti i valori estratti dalle invocazioni di dice().
+
+  Example:
+  rollTheDices(3) => ritorna {
+      sum: 10
+      values: [3, 3, 4]
+  }
+*/
+// devo fare 2functions
+// Funzione per generare un numero casuale tra 1 e 6 (simula il lancio di un dado)
+function dice() 
+{
+  return Math.floor(Math.random() * 6) + 1;
+}
+
+// Funzione "rollTheDices"
+function rollTheDices(Numeri) 
+{
+  const values = []; // Array che memorizza i valori estratti della prima function random
+  let sum = 0;
+  for (let i = 0; i < Numeri; i++) 
+  {
+    const Value_dice = dice();
+    values.push(Value_dice); // caricchiamo le valore uscite del random dice nell'array values
+    sum += Value_dice; // mano mano che caricchiamo l'array values , aggiorniamo sum
+  }
+
+  // Crea l'oggetto risultante
+  const result8 = {
+    sum: sum,
+    values: values
+  };
+
+  return result;
+}
+
+// controlliamo
+const Numeri = 3;
+const numResulta = rollTheDices(Numeri);
+
+console.log("Risultato dei lanci:", numResulta);
+
+
+/* ESERCIZIO 9
+  Scrivi una funzione chiamata "howManyDays" che riceve una data come parametro e ritorna il numero di giorni trascorsi da tale data.
+*/
+
+function howManyDays(date) {
+  // Ottieni la data odierna
+  const today = new Date();
+
+  // Calcola la differenza in millisecondi tra le due date
+  const differenceMs = Math.abs(today - date);
+
+  // Converti la differenza in giorni
+  const oneDayMs = 24 * 60 * 60 * 1000; // Millisecondi in un giorno
+  const daysPassed = Math.round(differenceMs / oneDayMs);
+
+  return daysPassed;
+}
+
+// Esempio di utilizzo della funzione
+const inputDate = new Date("2024-01-17"); // Sostituisci con la data desiderata
+const result = howManyDays(inputDate);
+
+console.log(`Sono passati ${result} giorni dalla data specificata.`);
+
+
+
+/* ESERCIZIO 10
+  Scrivi una funzione chiamata "isTodayMyBirthday" che deve ritornare true se oggi è il tuo compleanno, falso negli altri casi.
+*/
+
+
+function oggiEmioCompleanno() 
+{
+  const Oggi = new Date();
+  const mioCompleanno = new Date(Oggi.getFullYear(), 2, 6);
+
+  return Oggi.getMonth() === mioCompleanno.getMonth() && Oggi.getDate() === mioCompleanno.getDate();
+}
+
+// Esempio di utilizzo della funzione
+const EmioCompleanno = oggiEmioCompleanno();
+
+if (EmioCompleanno) 
+{
+  console.log("Oggi è il mio compleanno");
+} else 
+{
+  console.log("Oggi non è il mio compleanno, controllo il calendario.");
+}
+
+
+// Arrays & Oggetti
+
+// NOTA: l'array "movies" usato in alcuni esercizi è definito alla fine di questo file
+
+/* ESERCIZIO 11
+  Scrivi una funzione chiamata "deleteProp" che riceve un oggetto e una stringa come parametri; deve ritornare l'oggetto fornito dopo aver eliminato
+  in esso la proprietà chiamata come la stringa passata come secondo parametro.
+*/
+
+
+function deleteProp(obj, str11) 
+{
+  // Verifica se la proprietà esiste nell'oggetto
+  if (obj.hasOwnProperty(str11)) 
+  {
+    // Rimuovi la proprietà dall'oggetto
+    delete obj[str11];
+  }
+
+  return obj;
+}
+const obj = ["aero", "garda", "34", "velo"];
+const str11 = "velo";
+
+console.log(obj);
+
+
+
+
+
+/* ESERCIZIO 12
+  Scrivi una funzione chiamata "newestMovie" che trova il film più recente nell'array "movies" fornito.
+*/
+
+
+
+function newestMovie(movies) 
+{
+  const sortedMovies = movies.sort((a, b) => new Date(b.Year) - new Date(a.Year));
+
+  // Restituisci il film più recente
+  return sortedMovies[0];
+}
+
+
+const piuRecente = newestMovie(moviesArray);
+console.log("Il film più recente è:", piuRecente.Title);
+
+
+
+/* ESERCIZIO 13
+  Scrivi una funzione chiamata countMovies che ritorna il numero di film contenuti nell'array "movies" fornito.
+*/
+function countMovies(mvovies)
+{
+    if (movies.length != 0) 
+    {
+        const numMovies = movies.length + 1;
+        return numMovies;
+        
+    }
+}
+
+console.log(`Il numero di film è: ${numMovies}`);
+
+
+/* ESERCIZIO 14
+  Scrivi una funzione chiamata "onlyTheYears" che crea un array con solamente gli anni di uscita dei film contenuti nell'array "movies" fornito.
+*/
+
+function onlyTheYears(movies) 
+{
+  if (movies.length != 0) 
+  {
+    return movies;
+  }
+
+  // Estrai gli anni di uscita dai film
+  const arrayAnni = movies.map(movie => parseInt(movie.Year));
+
+  return arrayAnni;
+}
+
+arrayAnni = onlyTheYears(moviesArray);
+console.log("Anni di uscita dei film:", arrayAnni);
+
+
+
+
+
+
+/* ESERCIZIO 15
+  Scrivi una funzione chiamata "onlyInLastMillennium" che ritorna solamente i film prodotto nel millennio scorso contenuti nell'array "movies" fornito.
+*/
+
+
+function onlyInLastMillennium(movies) 
+{
+  if (!Array.isArray(movies)) 
+  {
+    return "L'input fornito non è un array.";
+  }
+
+  // Filtra i film prodotti nel millennio scorso (dal 2000 al 1999)
+  const lastMillenniumMovies = movies.filter(movie => 
+  {
+    const anndelFilm = parseInt(movie.Year);
+    return anndelFilm >= 2000 && anndelFilm <= 1999;
+  });
+
+  return lastMillenniumMovies;
+}
+const lastMillenniumFilms = onlyInLastMillennium(moviesArray);
+console.log("Film prodotti nel millennio scorso:", lastMillenniumFilms);
+
+
+
+/* ESERCIZIO 16
+  Scrivi una funzione chiamata "sumAllTheYears" che ritorna la somma di tutti gli anni in cui sono stati prodotti i film contenuti nell'array "movies" fornito.
+*/
+
+function sumAllTheYears(movies) 
+{
+  for(let i = 0; i < movies.length; i++)
+  {
+    const anni = [];
+    
+  }
+
+  // Estrai gli anni di uscita dai film e sommali
+  const totalSum = movies.reduce((sum, movie) => sum + parseInt(movie.Year), 0);
+
+  return totalSum;
+}
+
+// Esempio di utilizzo della funzione con un array di film
+const moviesArray = [
+  // ... elenco dei film ...
+];
+
+const sumOfYears = sumAllTheYears(moviesArray);
+console.log("Somma degli anni di uscita:", sumOfYears);
+
+
+
+/* ESERCIZIO 17
+  Scrivi una funzione chiamata "searchByTitle" che riceve una stringa come parametro e ritorna i film nell'array "movies" fornito che la contengono nel titolo.
+*/
+
+/* ESERCIZIO 18
+  Scrivi una funzione chiamata "searchAndDivide" che riceve una stringa come parametro e ritorna un oggetto contenente due array: "match" e "unmatch".
+  "match" deve includere tutti i film dell'array "movies" fornito che contengono la stringa fornita all'interno del proprio titolo, mentre "unmatch" deve includere tutti i rimanenti.
+*/
+
+/* ESERCIZIO 19
+  Scrivi una funzione chiamata "removeIndex" che riceve un numero come parametro e ritorna l'array "movies" fornito privo dell'elemento nella posizione ricevuta come parametro.
+*/
+
+// DOM (nota: gli elementi che selezionerai non si trovano realmente nella pagina)
+
+/* ESERCIZIO 20
+  Scrivi una funzione per selezionare l'elemento dotato di id "container" all'interno della pagina.
+*/
+
+/* ESERCIZIO 21
+  Scrivi una funzione per selezionare ogni tag <td> all'interno della pagina.
+*/
+
+/* ESERCIZIO 22
+  Scrivi una funzione che, tramite un ciclo, stampa in console il testo contenuto in ogni tag <td> all'interno della pagina.
+*/
+
+/* ESERCIZIO 23
+  Scrivi una funzione per aggiungere un background di colore rosso a ogni link all'interno della pagina.
+*/
+
+/* ESERCIZIO 24
+  Scrivi una funzione per aggiungere un nuovo elemento alla lista non ordinata con id "myList".
+*/
+
+/* ESERCIZIO 25
+  Scrivi una funzione per svuotare la lista non ordinata con id "myList".
+*/
+
+/* ESERCIZIO 26
+  Scrivi una funzione per aggiungere ad ogni tag <tr> la classe CSS "test"
+*/
+
+// [EXTRA] JS Avanzato
+
+/* ESERCIZIO 27
+  Crea una funzione chiamata "halfTree" che riceve un numero come parametro e costruisce un mezzo albero di "*" (asterischi) dell'altezza fornita.
+
+  Esempio:
+  halfTree(3)
+
+  *
+  **
+  ***
+
+*/
+
+/* ESERCIZIO 28
+  Crea una funzione chiamata "tree" che riceve un numero come parametro e costruisce un albero di "*" (asterischi) dell'altezza fornita.
+
+  Esempio:
+  tree(3)
+
+    *
+   ***
+  *****
+
+*/
+
+/* ESERCIZIO 29
+  Crea una funzione chiamata "isItPrime" che riceve un numero come parametro e ritorna true se il numero fornito è un numero primo.
+*/
+const movies = [
+  {
+    Title: 'The Lord of the Rings: The Fellowship of the Ring',
+    Year: '2001',
+    imdbID: 'tt0120737',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BN2EyZjM3NzUtNWUzMi00MTgxLWI0NTctMzY4M2VlOTdjZWRiXkEyXkFqcGdeQXVyNDUzOTQ5MjY@._V1_SX300.jpg',
+  },
+
+  {
+    Title: 'The Lord of the Rings: The Return of the King',
+    Year: '2003',
+    imdbID: 'tt0167260',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BNzA5ZDNlZWMtM2NhNS00NDJjLTk4NDItYTRmY2EwMWZlMTY3XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
+  },
+  {
+    Title: 'The Lord of the Rings: The Two Towers',
+    Year: '2002',
+    imdbID: 'tt0167261',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BNGE5MzIyNTAtNWFlMC00NDA2LWJiMjItMjc4Yjg1OWM5NzhhXkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Lord of War',
+    Year: '2005',
+    imdbID: 'tt0399295',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMTYzZWE3MDAtZjZkMi00MzhlLTlhZDUtNmI2Zjg3OWVlZWI0XkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Lords of Dogtown',
+    Year: '2005',
+    imdbID: 'tt0355702',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BNDBhNGJlOTAtM2ExNi00NmEzLWFmZTQtYTZhYTRlNjJjODhmXkEyXkFqcGdeQXVyNDk3NzU2MTQ@._V1_SX300.jpg',
+  },
+  {
+    Title: 'The Lord of the Rings',
+    Year: '1978',
+    imdbID: 'tt0077869',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BOGMyNWJhZmYtNGQxYi00Y2ZjLWJmNjktNTgzZWJjOTg4YjM3L2ltYWdlXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Lord of the Flies',
+    Year: '1990',
+    imdbID: 'tt0100054',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BOTI2NTQyODk0M15BMl5BanBnXkFtZTcwNTQ3NDk0NA@@._V1_SX300.jpg',
+  },
+  {
+    Title: 'The Lords of Salem',
+    Year: '2012',
+    imdbID: 'tt1731697',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMjA2NTc5Njc4MV5BMl5BanBnXkFtZTcwNTYzMTcwOQ@@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Greystoke: The Legend of Tarzan, Lord of the Apes',
+    Year: '1984',
+    imdbID: 'tt0087365',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMTM5MzcwOTg4MF5BMl5BanBnXkFtZTgwOTQwMzQxMDE@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Lord of the Flies',
+    Year: '1963',
+    imdbID: 'tt0057261',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BOGEwYTlhMTgtODBlNC00ZjgzLTk1ZmEtNmNkMTEwYTZiM2Y0XkEyXkFqcGdeQXVyMzU4Nzk4MDI@._V1_SX300.jpg',
+  },
+  {
+    Title: 'The Avengers',
+    Year: '2012',
+    imdbID: 'tt0848228',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BNDYxNjQyMjAtNTdiOS00NGYwLWFmNTAtNThmYjU5ZGI2YTI1XkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Avengers: Infinity War',
+    Year: '2018',
+    imdbID: 'tt4154756',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMjMxNjY2MDU1OV5BMl5BanBnXkFtZTgwNzY1MTUwNTM@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Avengers: Age of Ultron',
+    Year: '2015',
+    imdbID: 'tt2395427',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMTM4OGJmNWMtOTM4Ni00NTE3LTg3MDItZmQxYjc4N2JhNmUxXkEyXkFqcGdeQXVyNTgzMDMzMTg@._V1_SX300.jpg',
+  },
+  {
+    Title: 'Avengers: Endgame',
+    Year: '2019',
+    imdbID: 'tt4154796',
+    Type: 'movie',
+    Poster:
+      'https://m.media-amazon.com/images/M/MV5BMTc5MDE2ODcwNV5BMl5BanBnXkFtZTgwMzI2NzQ2NzM@._V1_SX300.jpg',
+  },
+]
+
+
+    </script>
+</body>
+</html>
